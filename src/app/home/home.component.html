@@ -1,0 +1,49 @@
+<div class="container">
+    <header id="pageHeader">
+        <h1>SpaceX Launch Programs</h1>
+    </header>
+    <aside id="aside">
+        <h4 tabindex="0">Filters</h4>
+        <div class="sub-heading">
+            <p tabindex="0" aria-label="Filter by launch year">Launch Year</p>
+            <hr />
+        </div>
+
+        <div class="btn-flexbox">
+            <div class="btn-outer" *ngFor="let obj of years" tabindex="0" aria-label="filter by">
+                <button (click)="filterMission('year',obj.year)" [class.active]="obj.year === selectedYear">
+                    {{obj.year}} </button>
+            </div>
+        </div>
+
+        <div class="sub-heading">
+            <p tabindex="0" aria-label="Filter by successful launch">Successful Launch</p>
+            <hr />
+        </div>
+
+        <div class="btn-flexbox">
+            <div class="btn-outer" *ngFor="let obj of launch" tabindex="0" aria-label="filter by">
+                <button (click)="filterMission('launch',obj.value)" [class.active]="obj.value === selectedLaunch">
+                    {{obj.value}} </button>
+            </div>
+        </div>
+
+        <div class="sub-heading">
+            <p tabindex="0" aria-label="Filter by successful landing">Successful Landing</p>
+            <hr />
+        </div>
+
+        <div class="btn-flexbox">
+            <div class="btn-outer" *ngFor="let obj of launch" tabindex="0" aria-label="filter by">
+                <button (click)="filterMission('landing',obj.value)" [class.active]="obj.value === selectedLanding">
+                    {{obj.value}} </button>
+            </div>
+        </div>
+    </aside>
+
+    <main id="main">
+        <app-mission [missions]="missions"></app-mission>
+    </main>
+
+    <footer id="pageFooter" tabindex="0"> <b>Developed by :</b> Vinothini Venkatesan</footer>
+</div>

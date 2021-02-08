@@ -1,0 +1,34 @@
+<div class="no-data" *ngIf="missions && missions.length==0">
+    <p tab-index="0">No data available!</p>
+</div>
+<section class="cards" *ngIf="missions && missions.length>0">
+    <article class="card" *ngFor="let mission of missions" tabindex="0">
+        <picture class="thumbnail">
+            <img [attr.src]="mission.links.mission_patch_small?mission.links.mission_patch_small:'./../../assets/placeholder.png'"
+                alt="Mission-image" />
+        </picture>
+        <div class="card-content">
+            <h5 class="blue">{{mission.mission_name}} #{{mission.flight_number}}</h5>
+            <label>
+                <span class="bold">Mission Ids:</span>
+                <ul class="text" *ngIf="mission.mission_id.length>0; else missionIdElseBlock">
+                    <li *ngFor="let id of mission.mission_id">{{id}}</li>
+                </ul>
+                <ng-template #missionIdElseBlock><span class="text">NA</span></ng-template>
+            </label>
+            <label>
+                <span class="bold">Launch Year:</span> <span class="text">{{mission.launch_year}}</span>
+            </label>
+            <label>
+                <span class="bold">Successful Launch:</span> <span class="text">{{mission.launch_success}}</span>
+            </label>
+            <label>
+                <span class="bold">Successful Landing:</span>
+                <span class="text"
+                    *ngIf="mission?.rocket?.first_stage?.cores[0]?.land_success!=null; else landingElseBlock">{{mission?.rocket?.first_stage?.cores[0]?.land_success}}</span>
+                <ng-template #landingElseBlock><span class="text">NA</span></ng-template>
+            </label>
+        </div><!-- .card-content -->
+    </article><!-- .card -->
+    </section>
+    
