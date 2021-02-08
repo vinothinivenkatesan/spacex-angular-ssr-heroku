@@ -22,7 +22,7 @@ https://www.awesomescreenshot.com/image/6057275?key=610949f531044401ed001867c363
 
 Tablet View
 
-https://www.awesomescreenshot.com/image/6057472?key=6c19062c0b56bd0d8fa0d2163da7e5d2
+https://www.awesomescreenshot.com/image/6071246?key=9e6d79c4ad7f71e89bfc72a20ea83447
 
 Commands to Run
 ---------------
